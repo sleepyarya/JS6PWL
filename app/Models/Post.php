@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'slug', 'content', 'category_id'];
+    protected $fillable = ['title', 'slug', 'content', 'category_id', 'color', 'image', 'is_published', 'published_at'];
+
+    protected $casts = [
+        'is_published' => 'boolean',
+        'published_at' => 'datetime',
+    ];
 
     // Relasi ke satu kategori (via foreign key category_id)
     public function category()
